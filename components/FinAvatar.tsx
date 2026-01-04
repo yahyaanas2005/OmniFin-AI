@@ -25,7 +25,7 @@ export default function FinAvatar({ size = 64, mood = 'neutral' }: Props) {
         background: 'linear-gradient(135deg, rgba(255,255,255,0.03), rgba(0,0,0,0.08))',
         boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.02)'
       }}
-      aria-hidden
+      aria-hidden={true}
     >
       <div
         className="flex items-center justify-center rounded-full"
