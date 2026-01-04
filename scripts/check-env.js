@@ -15,21 +15,27 @@ const path = require('path');
 // Try to load .env.local for local development verification
 const envLocalPath = path.join(__dirname, '..', '.env.local');
 if (fs.existsSync(envLocalPath)) {
-  const envContent = fs.readFileSync(envLocalPath, 'utf8');
-  envContent.split('\n').forEach(line => {
-    const trimmedLine = line.trim();
-    if (trimmedLine && !trimmedLine.startsWith('#')) {
-      const match = trimmedLine.match(/^([^=]+)=(.*)$/);
-      if (match) {
-        const key = match[1].trim();
-        const value = match[2].trim();
-        // Only set if not already in environment (env vars take precedence)
-        if (!process.env[key]) {
-          process.env[key] = value;
+  try {
+    const envContent = fs.readFileSync(envLocalPath, 'utf8');
+    envContent.split('\n').forEach(line => {
+      const trimmedLine = line.trim();
+      // Skip empty lines and comments
+      if (trimmedLine && !trimmedLine.startsWith('#')) {
+        const match = trimmedLine.match(/^([^=]+)=(.*)$/);
+        if (match) {
+          const key = match[1].trim();
+          const value = match[2].trim();
+          // Only set if not already in environment (env vars take precedence)
+          if (!process.env[key]) {
+            process.env[key] = value;
+          }
         }
       }
-    }
-  });
+    });
+  } catch (error) {
+    console.warn(`⚠️  Warning: Could not read .env.local file: ${error.message}`);
+    console.warn('   Continuing with environment variables only...\n');
+  }
 }
 
 const requiredEnvVars = [

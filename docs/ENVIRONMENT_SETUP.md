@@ -61,14 +61,12 @@ The server will start at http://localhost:3000
 
 ## Production Deployment (Vercel)
 
-### Method 1: Using vercel.json (Automatic)
+### Method 1: Vercel Dashboard (Recommended)
 
-The project includes a `vercel.json` file with pre-configured environment variables. When you import the project to Vercel, these will be automatically suggested.
-
-### Method 2: Manual Configuration
+The project includes a `vercel.json` file that defines the required environment variables. Follow these steps:
 
 1. Go to [Vercel Dashboard](https://vercel.com/dashboard)
-2. Select your project
+2. Select your project (or import the OmniFin-AI repository)
 3. Navigate to **Settings** → **Environment Variables**
 4. Add the following variables:
 
@@ -79,20 +77,28 @@ The project includes a `vercel.json` file with pre-configured environment variab
 
    **Variable 2:**
    - Name: `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - Value: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6YWNidnFmc3JpYnpocXdmbmZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc0ODEyNDksImV4cCI6MjA4MzA1NzI0OX0.gqWOg_TNyqGbp1AEp93OV9PpjHWecUYrjkodVtSppcg`
+   - Value: Get this from your `.env.local` file or Supabase Dashboard → Settings → API → anon key
    - Environments: ✅ Production ✅ Preview ✅ Development
 
 5. Save and redeploy
 
-### Method 3: Using Vercel CLI
+### Method 2: Using Vercel CLI
 
 ```bash
 vercel env add NEXT_PUBLIC_SUPABASE_URL production
 # Enter: https://kzacbvqfsribzhqwfnfd.supabase.co
 
 vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY production
-# Paste the anon key
+# Paste the anon key from your .env.local file
 ```
+
+### Method 3: Bulk Import (Advanced)
+
+If you have many environment variables, you can use Vercel's bulk import feature:
+
+1. Create a file with your environment variables (don't commit this!)
+2. Go to Vercel Dashboard → Settings → Environment Variables
+3. Use the "Paste .env" option to import multiple variables at once
 
 ## Supabase Project Information
 

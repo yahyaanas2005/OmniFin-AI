@@ -41,25 +41,47 @@ npm run dev
 
 ## Production Deployment (Vercel)
 
-### Option 1: Automatic Configuration (Recommended)
+### Deploying to Vercel
 
-The project includes a `vercel.json` file with pre-configured environment variables. When you deploy to Vercel, these will be automatically set up.
+The project includes a `vercel.json` configuration file that defines required environment variables. When deploying to Vercel, you'll need to configure these values.
 
-### Option 2: Manual Configuration
+### Setting Environment Variables in Vercel
 
-1. Go to your Vercel project settings: https://vercel.com/dashboard
-2. Navigate to **Settings** → **Environment Variables**
-3. Add each required environment variable:
+1. Go to your Vercel project: https://vercel.com/dashboard
+2. Select your project (or import the OmniFin-AI repository)
+3. Navigate to **Settings** → **Environment Variables**
+4. Add each required environment variable:
+
+   **Variable 1: NEXT_PUBLIC_SUPABASE_URL**
    - **Name**: `NEXT_PUBLIC_SUPABASE_URL`
    - **Value**: `https://kzacbvqfsribzhqwfnfd.supabase.co`
-   - **Environments**: Production, Preview, Development (select all)
+   - **Environments**: ✅ Production ✅ Preview ✅ Development (select all)
 
+   **Variable 2: NEXT_PUBLIC_SUPABASE_ANON_KEY**
    - **Name**: `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - **Value**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6YWNidnFmc3JpYnpocXdmbmZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc0ODEyNDksImV4cCI6MjA4MzA1NzI0OX0.gqWOg_TNyqGbp1AEp93OV9PpjHWecUYrjkodVtSppcg`
-   - **Environments**: Production, Preview, Development (select all)
+   - **Value**: Your Supabase anon key (see `.env.local` or Supabase Dashboard)
+   - **Environments**: ✅ Production ✅ Preview ✅ Development (select all)
 
-4. Click **Save** for each variable
-5. Redeploy your application (or push a new commit to trigger automatic deployment)
+5. Click **Save** for each variable
+6. Redeploy your application (or push a new commit to trigger automatic deployment)
+
+### Alternative: Using Vercel CLI
+
+You can also set environment variables using the Vercel CLI:
+
+```bash
+# Install Vercel CLI if you haven't already
+npm i -g vercel
+
+# Set environment variables
+vercel env add NEXT_PUBLIC_SUPABASE_URL
+# When prompted, enter: https://kzacbvqfsribzhqwfnfd.supabase.co
+# Select: Production, Preview, Development
+
+vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY
+# When prompted, paste your anon key
+# Select: Production, Preview, Development
+```
 
 ### Verifying Deployment
 

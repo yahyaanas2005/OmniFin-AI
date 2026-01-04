@@ -32,16 +32,15 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzd
 
 ## Vercel Deployment
 
-### Pre-configured in vercel.json:
-The `vercel.json` file includes the Supabase environment variables, so when you deploy to Vercel:
-
-1. **Automatic Setup**: Vercel will automatically suggest these environment variables during project import
-2. **Manual Setup**: You can also add them manually in Vercel Dashboard → Settings → Environment Variables
+### Configuration Approach:
+The `vercel.json` file defines the required environment variables with helpful descriptions, but does not include actual values for security reasons. Users must manually configure these in Vercel Dashboard.
 
 ### To Deploy:
 1. Push this code to GitHub
 2. Import the repository to Vercel
-3. Environment variables will be pre-populated from `vercel.json`
+3. **Manually add environment variables** in Vercel Dashboard → Settings → Environment Variables:
+   - `NEXT_PUBLIC_SUPABASE_URL` = `https://kzacbvqfsribzhqwfnfd.supabase.co`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = (get from `.env.local` or Supabase Dashboard)
 4. Click Deploy
 
 ## Local Development
@@ -90,17 +89,19 @@ npm run dev
 
 ## Security Notes
 
-### ✅ Secure:
+### ✅ Secure Implementation:
 - The `anon` key is safe to expose in the browser (it has Row Level Security)
-- `.env.local` is properly git-ignored
-- No secret keys are exposed in the codebase
-- Documentation warns against committing credentials
+- `.env.local` is properly git-ignored (contains local credentials)
+- `vercel.json` does NOT contain actual credential values
+- No secret keys are hardcoded in the codebase
+- Documentation clearly guides users to configure values securely
 
 ### ⚠️ Important:
-- Never commit the `service_role` secret key
+- Never commit the `service_role` secret key to version control
 - Keep `.env.local` private (it's already in .gitignore)
 - The `NEXT_PUBLIC_` prefix makes variables available in the browser
-- Use Vercel's environment variable UI for production deployment
+- Always configure production credentials through Vercel's dashboard, not in code
+- While the `anon` key can be public, it's still better to configure it through environment variable systems rather than hardcoding
 
 ## Next Steps for Deployment
 
