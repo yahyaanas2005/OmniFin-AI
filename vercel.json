@@ -1,0 +1,17 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "outputDirectory": ".next",
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": {
+      "description": "Your Supabase project URL (https://PROJECT_ID.supabase.co)",
+      "value": "https://kzacbvqfsribzhqwfnfd.supabase.co"
+    },
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": {
+      "description": "Your Supabase anonymous/public API key",
+      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6YWNidnFmc3JpYnpocXdmbmZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc0ODEyNDksImV4cCI6MjA4MzA1NzI0OX0.gqWOg_TNyqGbp1AEp93OV9PpjHWecUYrjkodVtSppcg"
+    }
+  }
+}

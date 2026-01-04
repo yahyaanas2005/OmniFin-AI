@@ -8,11 +8,20 @@ The following environment variables are required for production deployment:
 
 - **`NEXT_PUBLIC_SUPABASE_URL`**: Your Supabase project URL
   - Example: `https://xxxxxxxxxxxxx.supabase.co`
+  - **Current Value**: `https://kzacbvqfsribzhqwfnfd.supabase.co`
   - Where to find: Supabase Dashboard → Project Settings → API → Project URL
 
 - **`NEXT_PUBLIC_SUPABASE_ANON_KEY`**: Your Supabase anonymous/public API key
   - Example: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...`
+  - **Current Value**: See `.env.local` file (not committed to version control)
   - Where to find: Supabase Dashboard → Project Settings → API → Project API keys → `anon` `public`
+
+### Supabase Project Details
+
+- **Project ID**: `kzacbvqfsribzhqwfnfd`
+- **Project URL**: `https://kzacbvqfsribzhqwfnfd.supabase.co`
+- **Dashboard**: https://supabase.com/dashboard/project/kzacbvqfsribzhqwfnfd
+- **API Keys Page**: https://supabase.com/dashboard/project/kzacbvqfsribzhqwfnfd/settings/api-keys/legacy
 
 ## Local Development
 
@@ -32,10 +41,32 @@ npm run dev
 
 ## Production Deployment (Vercel)
 
-1. Go to your Vercel project settings
-2. Navigate to Environment Variables
-3. Add each required environment variable with its value
-4. Redeploy your application
+### Option 1: Automatic Configuration (Recommended)
+
+The project includes a `vercel.json` file with pre-configured environment variables. When you deploy to Vercel, these will be automatically set up.
+
+### Option 2: Manual Configuration
+
+1. Go to your Vercel project settings: https://vercel.com/dashboard
+2. Navigate to **Settings** → **Environment Variables**
+3. Add each required environment variable:
+   - **Name**: `NEXT_PUBLIC_SUPABASE_URL`
+   - **Value**: `https://kzacbvqfsribzhqwfnfd.supabase.co`
+   - **Environments**: Production, Preview, Development (select all)
+
+   - **Name**: `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - **Value**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6YWNidnFmc3JpYnpocXdmbmZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc0ODEyNDksImV4cCI6MjA4MzA1NzI0OX0.gqWOg_TNyqGbp1AEp93OV9PpjHWecUYrjkodVtSppcg`
+   - **Environments**: Production, Preview, Development (select all)
+
+4. Click **Save** for each variable
+5. Redeploy your application (or push a new commit to trigger automatic deployment)
+
+### Verifying Deployment
+
+After deployment, you can verify the environment variables are set correctly by:
+1. Check Vercel deployment logs for any errors
+2. Visit your deployed site and check browser console for any Supabase connection warnings
+3. Test authentication features if implemented
 
 ## Build-time Validation
 
