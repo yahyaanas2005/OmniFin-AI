@@ -24,11 +24,15 @@ This document summarizes the environment variable configuration for OmniFin AI.
 - **Dashboard**: https://supabase.com/dashboard/project/kzacbvqfsribzhqwfnfd
 - **API Keys**: https://supabase.com/dashboard/project/kzacbvqfsribzhqwfnfd/settings/api-keys/legacy
 
-### Environment Variables Set:
+### Environment Variables Configuration:
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=https://kzacbvqfsribzhqwfnfd.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6YWNidnFmc3JpYnpocXdmbmZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc0ODEyNDksImV4cCI6MjA4MzA1NzI0OX0.gqWOg_TNyqGbp1AEp93OV9PpjHWecUYrjkodVtSppcg
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
 ```
+
+**Note:** The actual anon key should be obtained from:
+- **Local Development**: Your `.env.local` file (git-ignored)
+- **Supabase Dashboard**: https://supabase.com/dashboard/project/kzacbvqfsribzhqwfnfd/settings/api-keys/legacy → `anon` key
 
 ## Vercel Deployment
 

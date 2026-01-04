@@ -32,9 +32,12 @@ Edit `.env.local` and add your Supabase credentials:
 
 ```bash
 # Supabase Configuration
+# Get these values from: https://supabase.com/dashboard/project/kzacbvqfsribzhqwfnfd/settings/api
 NEXT_PUBLIC_SUPABASE_URL=https://kzacbvqfsribzhqwfnfd.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6YWNidnFmc3JpYnpocXdmbmZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc0ODEyNDksImV4cCI6MjA4MzA1NzI0OX0.gqWOg_TNyqGbp1AEp93OV9PpjHWecUYrjkodVtSppcg
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
 ```
+
+**Note:** Replace `your-anon-key-here` with your actual Supabase anon key from the Supabase Dashboard → Settings → API → Project API keys → `anon` key.
 
 ### Step 3: Install Dependencies
 
