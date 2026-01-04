@@ -1,18 +1,28 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
+import { createClient } from '@/lib/supabase/client'
+import type { User } from '@supabase/supabase-js'
 
 export default function NewCompanyPage() {
-  const supabase = useSupabaseClient()
-  const user = useUser()
+  const supabase = createClient()
   const router = useRouter()
+  const [user, setUser] = useState<User | null>(null)
 
   const [companyName, setCompanyName] = useState('')
   const [currency, setCurrency] = useState('USD')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  // Fetch current user on mount
+  useEffect(() => {
+    const getUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser()
+      setUser(user)
+    }
+    getUser()
+  }, [supabase.auth])
 
   const currencies = ['USD', 'EUR', 'GBP', 'JPY', 'AUD', 'CAD', 'CHF', 'CNY']
 
