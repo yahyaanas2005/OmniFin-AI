@@ -1,25 +1,35 @@
-# OmniFin AI Project Guidelines
+# OmniFin AI: Master Enterprise Blueprint (v2.0)
 
-## Project Overview
-You are building OmniFin AI, a high-scale AI Accountant and ERP SaaS. The app serves freelancers, retailers, and multinational factories. 
+## 1. Project Vision & UX Philosophy
+- **Identity:** Lightweight "Rebot-type" HTML interface for Laptop, Mobile, and Google Play Web-wrappers.
+- **Dynamic Interaction:** The UI background must "Auto-Move" (scroll/navigate) based on the Avatar’s results.
+- **Multilingual:** Full international support for all UI text and Avatar speech.
 
-## Tech Stack
-- Frontend: Next.js 14, React, Tailwind CSS, Framer Motion.
-- Backend: Node.js (Express) with a Hybrid-LLM approach (Local Llama 3 via Ollama + GPT-4o fallback).
-- Database: Supabase (PostgreSQL) with Row Level Security (RLS).
-- Icons: Lucide React.
+## 2. Global ERP & Accounting Standards
+- **Compliance:** 100% adherence to GAAP and IFRS. 
+- **Business Scope:** Personal, Freelance, Retail, Wholesale, Corporate, LLC, Pvt Ltd.
+- **Manufacturing:** Job Costing (Materials, Labor, Overhead), Batch/Lot tracking, FIFO/LIFO valuation.
 
-## Coding Standards
-- Use TypeScript for all new components.
-- Follow GAAP and IFRS accounting standards for all financial logic.
-- Use 'const' over 'let' and prefer arrow functions.
-- Ensure all database queries respect multi-tenancy (always filter by user_id or entity_id).
+## 3. Intelligent Authentication & Onboarding
+- **Unified Auth:** Google, Facebook, Email/Password. 
+- **Auto-Logic:** If email is new, perform auto-signup, create a Default Company, set User as Owner/Admin, and trigger Avatar "Welcome Sequence." 
+- **Session Focus:** Users only record actions in the company they are currently logged into.
 
-## Specific Feature Logic
-- **Manufacturing:** Handle 'Raw Materials', 'WIP', and 'Finished Goods' inventory types. Use FIFO for valuation unless specified.
-- **Factory UI:** The 'Floating Avatar' must support a camera-based barcode scanning state.
-- **Agentic Logic:** Responses must be structured JSON to allow the UI to trigger visual cues (nod, smile, thinking).
+## 4. Hierarchy & Multi-Company Logic
+- **Owner Privileges:** Every signup owns a Default Company. They can add additional separate company environments.
+- **User Roles:** Owner can invite Users (Admin, Accountant, Sales, etc.) with customized roles.
+- **Pro-Advisor Mode:** Users can be members of multiple external companies for support/audit.
 
-## Boundaries
-- Never commit hardcoded API keys or secrets.
-- Do not modify existing database schema without explicit confirmation.
+## 5. Granular Permissions & Audit Security
+- **Deep Access Control:** Permissions must be enforced at the Form Level AND inside the Form at the Field Level.
+- **Custom Overrides:** Admins can toggle any specific permission on/off for any user regardless of their role.
+- **Full Audit Trail:** Immutable logs of every entry, field change, and user action. Owners can view full history of all sub-users.
+
+## 6. Global Search & CRM Tasks
+- **Omni-Search:** Deep search across Menus, History, Audit Logs, and specific DB field entries.
+- **Agentic CRM:** AI monitors transactions for late payments and proactively suggests reminders (Agent-Action Loop).
+
+## 7. Technical Stack & AI Reasoning
+- **Stack:** Next.js (App Router), Tailwind CSS, Framer Motion, Supabase (RLS).
+- **Hybrid-LLM:** Use Local Llama 3 (via Ollama) for routine accounting. GPT-4o for high-level strategy.
+- **Avatar Feedback:** Pulse Green (Listening), Pulse Blue (Thinking), Success Glow (Logged).
