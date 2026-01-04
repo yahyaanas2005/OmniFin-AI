@@ -21,10 +21,11 @@ if (fs.existsSync(envLocalPath)) {
       const trimmedLine = line.trim();
       // Skip empty lines and comments
       if (trimmedLine && !trimmedLine.startsWith('#')) {
-        const match = trimmedLine.match(/^([^=]+)=(.*)$/);
-        if (match) {
-          const key = match[1].trim();
-          const value = match[2].trim();
+        // Split only on the first '=' to handle values with '=' in them
+        const firstEquals = trimmedLine.indexOf('=');
+        if (firstEquals > 0) {
+          const key = trimmedLine.substring(0, firstEquals).trim();
+          const value = trimmedLine.substring(firstEquals + 1).trim();
           // Only set if not already in environment (env vars take precedence)
           if (!process.env[key]) {
             process.env[key] = value;
