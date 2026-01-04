@@ -1,0 +1,15 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "outputDirectory": ".next",
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": {
+      "description": "Your Supabase project URL (e.g., https://kzacbvqfsribzhqwfnfd.supabase.co). Find this in Supabase Dashboard → Settings → API → Project URL"
+    },
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": {
+      "description": "Your Supabase anonymous/public API key. Find this in Supabase Dashboard → Settings → API → Project API keys → anon"
+    }
+  }
+}
