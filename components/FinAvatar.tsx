@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Robot } from 'lucide-react';
+import { Bot } from 'lucide-react';
 import React from 'react';
 
 type Props = {
@@ -36,7 +36,7 @@ export default function FinAvatar({ size = 64, mood = 'neutral' }: Props) {
           borderRadius: '9999px'
         }}
       >
-        <Robot size={Math.max(16, Math.floor((size - 12) * 0.6))} color="#022" />
+        <Bot size={Math.max(16, Math.floor((size - 12) * 0.6))} color="#022" />
       </div>
     </motion.div>
   );
